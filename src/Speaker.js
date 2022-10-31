@@ -1,0 +1,34 @@
+import React from "react";
+
+class Speaker extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.initAudio = this.initAudio.bind(this);
+    this.state = {
+      audContext: null,
+      oscillator: null,
+      gainNode: null,
+    };
+  }
+
+  initAudio() {
+    let audContext = new AudioContext();
+    let oscillator = audContext.createOscillator();
+    oscillator.type = "square";
+    let gainNode = audContext.createGain();
+    gainNode.value = 0.25;
+    oscillator.connect(gainNode);
+    gainNode.connect(audContext.destination);
+    this.setState({
+      audContext: audContext,
+      oscillator: oscillator,
+      gainNode: gainNode,
+    });
+  }
+  render() {
+    return <div onClick={this.initAudio}>Click to Start Sound</div>;
+  }
+}
+
+export default Speaker;
