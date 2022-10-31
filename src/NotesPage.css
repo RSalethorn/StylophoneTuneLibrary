@@ -1,0 +1,14 @@
+.page-container {
+    background-color: rgb(255, 255, 226);
+    height: 44.9vw;
+    width: 30vw;
+    position: absolute;
+    left: 60.5vw;
+    top: 0.9vw;
+}
+
+.lines-container {
+    list-style-type: none;
+    font-size: 2vw;
+    padding-left: 0.75vw;
+}
