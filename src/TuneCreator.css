@@ -1,0 +1,15 @@
+.tunecreator-container {
+    position: relative;
+}
+
+.stylophone {
+    position: absolute;
+    left: 0;
+    top: 0;
+    border: 2px solid red;
+}
+
+.notespage {
+    position: absolute;
+    left: 50vw;
+}

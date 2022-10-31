@@ -1,0 +1,188 @@
+.key {
+    height: 3.2vw;
+    width: 3vw;
+    top: 32.1vw;
+    position: absolute;
+    opacity: 0%;
+    
+}
+
+.key-1 {
+    width: 3.9vw;
+    height: 9.5vw;
+
+    top: 31.4vw;
+    left: 8.4vw;
+}
+.key-1_5 {
+    width: 3.8vw;
+    height: 5.9vw;
+    
+    top: 29.6vw;
+    left: 10.6vw;
+
+    z-index: 1;
+}
+.key-2 {
+    width: 3.75vw;
+    height: 10.80vw;
+    
+    top: 29.8vw;
+    left: 12.575vw;
+}
+.key-3 {
+    width: 3.75vw;
+    height: 10.8vw;
+    
+    top: 29.8vw;
+    left: 16.615vw;
+}
+.key-3_5 {
+    width: 3.8vw;
+    height: 5.9vw;
+    
+    top: 29.6vw;
+    left: 18.62vw;
+
+    z-index: 1;
+}
+.key-4 {
+    width: 3.775vw;
+    height: 6.4vw;
+    
+    top: 34.41vw;
+    left: 20.6vw;
+}
+.key-4_5 {
+    width: 3.8vw;
+    height: 5.9vw;
+    
+    top: 29.6vw;
+    left: 22.6vw;
+
+    z-index: 1;
+}
+.key-5 {
+    width: 3.75vw;
+    height: 10.80vw;
+    
+    top: 29.8vw;
+    left: 24.68vw;
+}
+.key-6 {
+    width: 3.75vw;
+    height: 10.80vw;
+    
+    top: 29.8vw;
+    left: 28.6vw;
+}
+.key-6_5 {
+    width: 3.8vw;
+    height: 5.9vw;
+    
+    top: 29.6vw;
+    left: 30.6vw;
+
+    z-index: 1;
+}
+.key-7 {
+    width: 3.775vw;
+    height: 6.4vw;
+    
+    top: 34.41vw;
+    left: 32.62vw;
+}
+.key-7_5 {
+    width: 3.8vw;
+    height: 5.9vw;
+    
+    top: 29.6vw;
+    left: 34.625vw;
+
+    z-index: 1;
+}
+.key-8 {
+    width: 3.775vw;
+    height: 6.4vw;
+    
+    top: 34.41vw;
+    left: 36.65vw;
+}
+.key-8_5 {
+    width: 3.8vw;
+    height: 5.9vw;
+    
+    top: 29.6vw;
+    left: 38.645vw;
+
+    z-index: 1;
+}
+.key-9 {
+    width: 3.75vw;
+    height: 10.80vw;
+    
+    top: 29.8vw;
+    left: 40.65vw;
+}
+.key-10 {
+    width: 3.75vw;
+    height: 10.80vw;
+    
+    top: 29.8vw;
+    left: 44.6vw;
+}
+.key-10_5 {
+    width: 3.8vw;
+    height: 5.9vw;
+    
+    top: 29.6vw;
+    left: 46.55vw;
+
+    z-index: 1;
+}
+.key-11 {
+    width: 3.775vw;
+    height: 6.4vw;
+    
+    top: 34.41vw;
+    left: 48.575vw;
+}
+.key-11_5 {
+    width: 3.8vw;
+    height: 5.9vw;
+    
+    top: 29.6vw;
+    left: 50.6vw;
+
+    z-index: 1;
+}
+.key-12 {
+    width: 3.9vw;
+    height: 8.98vw;
+
+    top: 31.695vw;
+    left: 52.65vw;
+}
+
+.stylo-container {
+    position: relative;
+    width: 60vw;
+    height: 45vw;
+}
+
+.outline {
+    position: absolute;
+    width: 60vw;
+    height: 45vw;
+    z-index: -1;
+    left: 0;
+    top: 0;
+}
+.overlay {
+    width: 60vw;
+    height: 45vw;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    position: relative;
+}
