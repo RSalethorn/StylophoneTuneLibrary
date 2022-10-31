@@ -95,11 +95,23 @@ class TuneCreator extends React.Component {
         let start = e.target.classList[1].indexOf("-")+1;
         let end = e.target.classList[1].length;
         let endBeatNo = e.target.classList[1].substr(start, end);
-        
-        if (this.state.isGroupSelect === true & this.state.startGroupSelectedBeat !== endBeatNo) {
+
+        let startBeatNo = this.state.startGroupSelectedBeat;
+
+        console.log("GEnd - StartBeatNo: "+startBeatNo+", EndBeatNo: "+endBeatNo+", IsGroupSelect: "+this.state.isGroupSelect);
+
+        if (this.state.isGroupSelect === true && parseInt(startBeatNo) > parseInt(endBeatNo)) {
+            console.log("Backwards Drag Activate");
+            [startBeatNo, endBeatNo] = [endBeatNo, startBeatNo];
+            this.setState({isGroupSelect: false});
+            this.setState({startGroupSelectedBeat: startBeatNo});
+            this.setState({endGroupSelectedBeat: endBeatNo});
+        } else if (this.state.isGroupSelect === true && parseInt(startBeatNo) < parseInt(endBeatNo)) {
+            console.log("Forwards Drag Activate");
             this.setState({isGroupSelect: false});
             this.setState({endGroupSelectedBeat: endBeatNo});
         } else {
+            console.log("Else Activate");
             this.setState({isGroupSelect: false});
         }
     }
