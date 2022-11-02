@@ -26,6 +26,16 @@ import highlight_12 from "./highlight-12.svg";
 class Stylophone extends React.Component {
   constructor(props) {
     super(props);
+    this.onMouseDown = this.onMouseDown.bind(this);
+    this.onMouseUp = this.onMouseUp.bind(this);
+
+    this.onMouseEnterKey = this.onMouseEnterKey.bind(this);
+    this.onMouseLeaveKey = this.onMouseLeaveKey.bind(this);
+    this.state = {
+      recordNotes: false,
+      mouseDown: false,
+      currentKeyNo: null,
+    };
   }
   render() {
     let highlightData = {
@@ -57,7 +67,9 @@ class Stylophone extends React.Component {
           key={highlightData[n]["keyNo"]}
           src={highlightData[n]["img"]}
           className={"key key-" + highlightData[n]["keyNo"]}
-          onClick={(e) => this.props.addNoteToSong(e)}
+          draggable={"false"}
+          onMouseDown={(e) => this.onMouseDown(e)}
+          onMouseUp={(e) => this.onMouseUp(e)}
           onMouseEnter={(e) => this.onMouseEnterKey(e)}
           onMouseLeave={(e) => this.onMouseLeaveKey(e)}
         />
@@ -67,12 +79,28 @@ class Stylophone extends React.Component {
       <div className="stylo-container">
         <img className="outline" src={outline} />
         <div className="overlay">{highlights}</div>
-        <Speaker />
+        <Speaker currentKeyNo={this.state.currentKeyNo} />
       </div>
     );
   }
 
+  onMouseDown(e) {
+    this.setState({ mouseDown: true });
+
+    let keyNo = this.props.addNoteToSong(e);
+    this.setState({ currentKeyNo: keyNo });
+  }
+
+  onMouseUp(e) {
+    this.setState({ mouseDown: false });
+    this.setState({ currentKeyNo: null });
+  }
+
   onMouseEnterKey(e) {
+    if (this.state.mouseDown === true) {
+      let keyNo = this.props.addNoteToSong(e);
+      this.setState({ currentKeyNo: keyNo });
+    }
     e.target.style.opacity = "33%";
   }
 

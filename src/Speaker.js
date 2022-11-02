@@ -28,7 +28,11 @@ class Speaker extends React.Component {
     });
   }
   render() {
-    return <div onClick={this.initAudio}>Click to Start Sound</div>;
+    return (
+      <div onClick={this.initAudio}>
+        Current Note: {this.props.currentKeyNo}
+      </div>
+    );
   }
 }
 
