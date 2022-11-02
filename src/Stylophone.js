@@ -36,6 +36,7 @@ class Stylophone extends React.Component {
       mouseDown: false,
       currentKeyNo: null,
     };
+    this.speaker = new Speaker();
   }
   render() {
     let highlightData = {
@@ -77,9 +78,9 @@ class Stylophone extends React.Component {
     }
     return (
       <div className="stylo-container">
-        <img className="outline" src={outline} />
-        <div className="overlay">{highlights}</div>
-        <Speaker currentKeyNo={this.state.currentKeyNo} />
+        <img className={"outline"} src={outline} />
+        <div className={"overlay"}>{highlights}</div>
+        <div onClick={this.speaker.initAudio}>Click to activate audio</div>
       </div>
     );
   }
@@ -89,22 +90,28 @@ class Stylophone extends React.Component {
 
     let keyNo = this.props.addNoteToSong(e);
     this.setState({ currentKeyNo: keyNo });
+
+    this.speaker.playNote(keyNo);
   }
 
   onMouseUp(e) {
     this.setState({ mouseDown: false });
     this.setState({ currentKeyNo: null });
+
+    this.speaker.stopNote();
   }
 
   onMouseEnterKey(e) {
     if (this.state.mouseDown === true) {
       let keyNo = this.props.addNoteToSong(e);
       this.setState({ currentKeyNo: keyNo });
+      this.speaker.playNote(keyNo);
     }
     e.target.style.opacity = "33%";
   }
 
   onMouseLeaveKey(e) {
+    this.speaker.stopNote();
     e.target.style.opacity = "0%";
   }
 }
