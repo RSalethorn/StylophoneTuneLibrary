@@ -20,6 +20,7 @@ class Speaker extends React.Component {
     gainNode.value = 0.25;
     oscillator.connect(gainNode);
     gainNode.connect(audContext.destination);
+    //oscillator.start(0);
     this.setState({
       audContext: audContext,
       oscillator: oscillator,
