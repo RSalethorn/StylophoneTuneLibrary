@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/StylophoneTuneLibrary/static/css/main.944e6fea.css",
-    "main.js": "/StylophoneTuneLibrary/static/js/main.b75c4a99.js",
+    "main.css": "/StylophoneTuneLibrary/static/css/main.8c0f2869.css",
+    "main.js": "/StylophoneTuneLibrary/static/js/main.4d9d1217.js",
     "static/js/787.81c03335.chunk.js": "/StylophoneTuneLibrary/static/js/787.81c03335.chunk.js",
     "static/media/stylo-outline.svg": "/StylophoneTuneLibrary/static/media/stylo-outline.634b4bae7275407eb3f352f36c5a95a3.svg",
     "index.html": "/StylophoneTuneLibrary/index.html",
@@ -26,12 +26,12 @@
     "static/media/highlight-8.5.svg": "/StylophoneTuneLibrary/static/media/highlight-8.5.6290d5362ba4aa58ecb63beb742e0583.svg",
     "static/media/highlight-4.5.svg": "/StylophoneTuneLibrary/static/media/highlight-4.5.655332c8fa174c8e9b930b6630a222ba.svg",
     "static/media/highlight-10.5.svg": "/StylophoneTuneLibrary/static/media/highlight-10.5.0cb6b07f56fef13a1b6757af816c6ffa.svg",
-    "main.944e6fea.css.map": "/StylophoneTuneLibrary/static/css/main.944e6fea.css.map",
-    "main.b75c4a99.js.map": "/StylophoneTuneLibrary/static/js/main.b75c4a99.js.map",
+    "main.8c0f2869.css.map": "/StylophoneTuneLibrary/static/css/main.8c0f2869.css.map",
+    "main.4d9d1217.js.map": "/StylophoneTuneLibrary/static/js/main.4d9d1217.js.map",
     "787.81c03335.chunk.js.map": "/StylophoneTuneLibrary/static/js/787.81c03335.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.944e6fea.css",
-    "static/js/main.b75c4a99.js"
+    "static/css/main.8c0f2869.css",
+    "static/js/main.4d9d1217.js"
   ]
 }
