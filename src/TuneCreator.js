@@ -11,6 +11,7 @@ class TuneCreator extends React.Component {
 
     this.addNoteToSong = this.addNoteToSong.bind(this);
     this.removeNoteFromSong = this.removeNoteFromSong.bind(this);
+    this.incrementNoteLength = this.incrementNoteLength.bind(this);
 
     this.selectBeat = this.selectBeat.bind(this);
 
@@ -29,7 +30,10 @@ class TuneCreator extends React.Component {
     return (
       <div className="tunecreator-container">
         <ErrorBoundary>
-          <Stylophone addNoteToSong={this.addNoteToSong} />
+          <Stylophone
+            addNoteToSong={this.addNoteToSong}
+            incrementNoteLength={this.incrementNoteLength}
+          />
           <NotesPage
             notes={this.state.song}
             removeNoteFromSong={this.removeNoteFromSong}
@@ -45,17 +49,35 @@ class TuneCreator extends React.Component {
       </div>
     );
   }
-  addNoteToSong(e, beatLength) {
+
+  incrementNoteLength() {
+    let newSong = this.state.song;
+    if (this.state.selectedBeat === null) {
+      newSong[newSong.length - 1].noteLength++;
+      console.log("INC: ");
+      console.log(newSong[newSong.length - 1]);
+    } else {
+      newSong[this.state.selectedBeat].noteLength++;
+    }
+  }
+
+  addNoteToSong(e) {
     let start = e.target.classList[1].indexOf("-") + 1;
     let end = e.target.classList[1].length;
     let keyNo = e.target.classList[1].substr(start, end);
 
     let newSong = this.state.song;
     if (this.state.selectedBeat == null) {
-      newSong.push(keyNo);
+      let newNote = { keyNo: keyNo, noteLength: 1 };
+      newSong.push(newNote);
+      console.log("Initial Add note: ");
+      console.log(newNote);
       this.setState({ song: newSong });
     } else {
-      newSong.splice(this.state.selectedBeat, 1, keyNo);
+      newSong.splice(this.state.selectedBeat, 1, {
+        keyNo: keyNo,
+        noteLength: 1,
+      });
       let newSelectedBeat = parseInt(this.state.selectedBeat) + 1;
       this.setState({ song: newSong, selectedBeat: newSelectedBeat });
     }

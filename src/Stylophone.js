@@ -98,18 +98,18 @@ class Stylophone extends React.Component {
     noteLength++;
     this.setState({ noteLength: noteLength });
     if (noteLength < 4) {
+      this.props.incrementNoteLength();
       this.noteLengthTimer = setTimeout(
         this.incrementNoteLength,
         this.state.beatLength
       );
     }
-    console.log(noteLength);
   }
 
   onMouseDown(e) {
     this.setState({ mouseDown: true });
 
-    let keyNo = this.props.addNoteToSong(e, this.state.beatLength);
+    let keyNo = this.props.addNoteToSong(e, this.state.noteLength);
 
     this.noteLengthTimer = setTimeout(
       this.incrementNoteLength,
@@ -136,7 +136,7 @@ class Stylophone extends React.Component {
 
   onMouseEnterKey(e) {
     if (this.state.mouseDown === true) {
-      let keyNo = this.props.addNoteToSong(e, this.state.beatLength);
+      let keyNo = this.props.addNoteToSong(e, this.state.noteLength);
       this.setState({ currentKeyNo: keyNo });
       this.speaker.playNote(keyNo);
     }
@@ -146,7 +146,7 @@ class Stylophone extends React.Component {
   onMouseLeaveKey(e) {
     this.speaker.stopNote();
 
-    this.setState({ noteLength: 0 });
+    this.setState({ noteLength: null });
     if (this.noteLengthTimer !== null) {
       clearTimeout(this.noteLengthTimer);
     }

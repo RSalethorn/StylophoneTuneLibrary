@@ -19,7 +19,7 @@ class NotesLine extends React.Component {
             "note noteNo-" +
             noteNo +
             " note-" +
-            this.props.notes[n] +
+            this.props.notes[n].keyNo +
             " beat-" +
             (n + 1)
           }
@@ -32,7 +32,7 @@ class NotesLine extends React.Component {
           className={"noteLabel noteNo-" + noteNo + " beat-" + (n + 1)}
           onClick={(e) => this.props.removeNoteFromSong(e)}
         >
-          {this.props.notes[n]}
+          {this.props.notes[n].keyNo}
         </div>
       );
     }
