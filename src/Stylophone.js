@@ -26,17 +26,25 @@ import highlight_12 from "./highlight-12.svg";
 class Stylophone extends React.Component {
   constructor(props) {
     super(props);
+
+    this.state = {
+      recordNotes: false,
+      mouseDown: false,
+      currentKeyNo: null,
+      noteLength: null,
+      beatLength: 350,
+    };
+
     this.onMouseDown = this.onMouseDown.bind(this);
     this.onMouseUp = this.onMouseUp.bind(this);
 
     this.onMouseEnterKey = this.onMouseEnterKey.bind(this);
     this.onMouseLeaveKey = this.onMouseLeaveKey.bind(this);
-    this.state = {
-      recordNotes: false,
-      mouseDown: false,
-      currentKeyNo: null,
-    };
+
+    this.incrementNoteLength = this.incrementNoteLength.bind(this);
+
     this.speaker = new Speaker();
+    this.noteLengthTimer = null;
   }
   render() {
     let highlightData = {
@@ -85,11 +93,33 @@ class Stylophone extends React.Component {
     );
   }
 
+  incrementNoteLength() {
+    let noteLength = this.state.noteLength;
+    noteLength++;
+    this.setState({ noteLength: noteLength });
+    if (noteLength < 4) {
+      this.noteLengthTimer = setTimeout(
+        this.incrementNoteLength,
+        this.state.beatLength
+      );
+    }
+    console.log(noteLength);
+  }
+
   onMouseDown(e) {
     this.setState({ mouseDown: true });
 
-    let keyNo = this.props.addNoteToSong(e);
-    this.setState({ currentKeyNo: keyNo });
+    let keyNo = this.props.addNoteToSong(e, this.state.beatLength);
+
+    this.noteLengthTimer = setTimeout(
+      this.incrementNoteLength,
+      this.state.beatLength
+    );
+
+    this.setState({
+      currentKeyNo: keyNo,
+      mouseDown: true,
+    });
 
     this.speaker.playNote(keyNo);
   }
@@ -97,13 +127,16 @@ class Stylophone extends React.Component {
   onMouseUp(e) {
     this.setState({ mouseDown: false });
     this.setState({ currentKeyNo: null });
-
+    this.setState({ noteLength: 0 });
+    if (this.noteLengthTimer !== null) {
+      clearTimeout(this.noteLengthTimer);
+    }
     this.speaker.stopNote();
   }
 
   onMouseEnterKey(e) {
     if (this.state.mouseDown === true) {
-      let keyNo = this.props.addNoteToSong(e);
+      let keyNo = this.props.addNoteToSong(e, this.state.beatLength);
       this.setState({ currentKeyNo: keyNo });
       this.speaker.playNote(keyNo);
     }
@@ -112,6 +145,11 @@ class Stylophone extends React.Component {
 
   onMouseLeaveKey(e) {
     this.speaker.stopNote();
+
+    this.setState({ noteLength: 0 });
+    if (this.noteLengthTimer !== null) {
+      clearTimeout(this.noteLengthTimer);
+    }
     e.target.style.opacity = "0%";
   }
 }

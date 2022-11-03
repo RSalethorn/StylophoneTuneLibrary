@@ -46,26 +46,20 @@ class Speaker {
 
   playNote(keyNo) {
     if (this.isInit === true && keyNo !== null && this.isPlaying === false) {
-      console.log("Playing " + keyNo);
       this.oscillator = this.audContext.createOscillator();
       this.oscillator.type = "square";
       this.oscillator.frequency.value = this.keyFreq[keyNo];
       this.oscillator.connect(this.gainNode);
       this.oscillator.start();
       this.isPlaying = true;
-    } else {
-      console.log("Play called but failed if");
     }
   }
 
   stopNote() {
     if (this.isInit === true && this.isPlaying === true) {
-      console.log("Stopping previous note");
       this.oscillator.stop();
       this.oscillator.disconnect();
       this.isPlaying = false;
-    } else {
-      console.log("Stop called but failed if");
     }
   }
 }

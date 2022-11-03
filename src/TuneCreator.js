@@ -28,8 +28,8 @@ class TuneCreator extends React.Component {
   render() {
     return (
       <div className="tunecreator-container">
-        <Stylophone addNoteToSong={this.addNoteToSong} />
         <ErrorBoundary>
+          <Stylophone addNoteToSong={this.addNoteToSong} />
           <NotesPage
             notes={this.state.song}
             removeNoteFromSong={this.removeNoteFromSong}
@@ -45,7 +45,7 @@ class TuneCreator extends React.Component {
       </div>
     );
   }
-  addNoteToSong(e) {
+  addNoteToSong(e, beatLength) {
     let start = e.target.classList[1].indexOf("-") + 1;
     let end = e.target.classList[1].length;
     let keyNo = e.target.classList[1].substr(start, end);
