@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import Stylophone from "./Stylophone";
 import NotesPage from "./NotesPage";
-import NotesLine from "./NotesLine";
 import ErrorBoundary from "./ErrorBoundary";
 
 class TuneCreator extends React.Component {
@@ -54,10 +53,10 @@ class TuneCreator extends React.Component {
     let newSong = this.state.song;
     if (this.state.selectedBeat === null) {
       newSong[newSong.length - 1].noteLength++;
-      console.log("INC: ");
-      console.log(newSong[newSong.length - 1]);
+      this.setState({ song: newSong });
     } else {
       newSong[this.state.selectedBeat].noteLength++;
+      this.setState({ song: newSong });
     }
   }
 
@@ -70,8 +69,6 @@ class TuneCreator extends React.Component {
     if (this.state.selectedBeat == null) {
       let newNote = { keyNo: keyNo, noteLength: 1 };
       newSong.push(newNote);
-      console.log("Initial Add note: ");
-      console.log(newNote);
       this.setState({ song: newSong });
     } else {
       newSong.splice(this.state.selectedBeat, 1, {
