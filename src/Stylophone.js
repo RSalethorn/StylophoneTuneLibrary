@@ -1,33 +1,34 @@
-import outline from "./stylo-outline.svg";
+import outline from "./img/stylo-outline.svg";
 import React from "react";
 import "./Stylophone.css";
 import Speaker from "./Speaker";
-import highlight_1 from "./highlight-1.svg";
-import highlight_1_5 from "./highlight-1.5.svg";
-import highlight_2 from "./highlight-2.svg";
-import highlight_3 from "./highlight-3.svg";
-import highlight_3_5 from "./highlight-3.5.svg";
-import highlight_4 from "./highlight-4.svg";
-import highlight_4_5 from "./highlight-4.5.svg";
-import highlight_5 from "./highlight-5.svg";
-import highlight_6 from "./highlight-6.svg";
-import highlight_6_5 from "./highlight-6.5.svg";
-import highlight_7 from "./highlight-7.svg";
-import highlight_7_5 from "./highlight-7.5.svg";
-import highlight_8 from "./highlight-8.svg";
-import highlight_8_5 from "./highlight-8.5.svg";
-import highlight_9 from "./highlight-9.svg";
-import highlight_10 from "./highlight-10.svg";
-import highlight_10_5 from "./highlight-10.5.svg";
-import highlight_11 from "./highlight-11.svg";
-import highlight_11_5 from "./highlight-11.5.svg";
-import highlight_12 from "./highlight-12.svg";
+import highlight_1 from "./img/highlights/highlight-1.svg";
+import highlight_1_5 from "./img/highlights/highlight-1.5.svg";
+import highlight_2 from "./img/highlights/highlight-2.svg";
+import highlight_3 from "./img/highlights/highlight-3.svg";
+import highlight_3_5 from "./img/highlights/highlight-3.5.svg";
+import highlight_4 from "./img/highlights/highlight-4.svg";
+import highlight_4_5 from "./img/highlights/highlight-4.5.svg";
+import highlight_5 from "./img/highlights/highlight-5.svg";
+import highlight_6 from "./img/highlights/highlight-6.svg";
+import highlight_6_5 from "./img/highlights/highlight-6.5.svg";
+import highlight_7 from "./img/highlights/highlight-7.svg";
+import highlight_7_5 from "./img/highlights/highlight-7.5.svg";
+import highlight_8 from "./img/highlights/highlight-8.svg";
+import highlight_8_5 from "./img/highlights/highlight-8.5.svg";
+import highlight_9 from "./img/highlights/highlight-9.svg";
+import highlight_10 from "./img/highlights/highlight-10.svg";
+import highlight_10_5 from "./img/highlights/highlight-10.5.svg";
+import highlight_11 from "./img/highlights/highlight-11.svg";
+import highlight_11_5 from "./img/highlights/highlight-11.5.svg";
+import highlight_12 from "./img/highlights/highlight-12.svg";
 
 class Stylophone extends React.Component {
   constructor(props) {
     super(props);
 
     this.state = {
+      //recordNotes:
       recordNotes: false,
       mouseDown: false,
       currentKeyNo: null,

@@ -1,9 +1,9 @@
 import React from "react";
 import "./NotesLine.css";
-import note from "./note.svg";
-import minim from "./minim.svg";
-import three_note from "./three_note.svg";
-import semibreve from "./semibreve.svg";
+import note from "./img/notes/note.svg";
+import minim from "./img/notes/minim.svg";
+import three_note from "./img/notes/three_note.svg";
+import semibreve from "./img/notes/semibreve.svg";
 
 class NotesLine extends React.Component {
   constructor(props) {
@@ -29,6 +29,7 @@ class NotesLine extends React.Component {
     let noteLabels = [];
     for (let n = 0; n < this.props.notes.length; n++) {
       let noteNo = this.props.noOfPrevNotes + n;
+      let keyNoWithoutSharp = this.props.notes[n].keyNo.split("_")[0];
       noteElems.push(
         <img
           key={n}
@@ -36,7 +37,7 @@ class NotesLine extends React.Component {
             "note noteNo-" +
             noteNo +
             " note-" +
-            this.props.notes[n].keyNo +
+            keyNoWithoutSharp +
             " beat-" +
             (n + 1)
           }
@@ -49,7 +50,7 @@ class NotesLine extends React.Component {
           className={"noteLabel noteNo-" + noteNo + " beat-" + (n + 1)}
           onClick={(e) => this.props.removeNoteFromSong(e)}
         >
-          {this.props.notes[n].keyNo}
+          {this.props.notes[n].keyNo.replace("_", ".")}
         </div>
       );
     }
