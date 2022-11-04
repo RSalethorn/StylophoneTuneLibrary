@@ -1,10 +1,27 @@
 import React from "react";
 import "./NotesLine.css";
 import note from "./note.svg";
+import minim from "./minim.svg";
+import three_note from "./three_note.svg";
+import semibreve from "./semibreve.svg";
 
 class NotesLine extends React.Component {
   constructor(props) {
     super(props);
+    this.noteImageNos = {
+      1: {
+        ref: note,
+      },
+      2: {
+        ref: minim,
+      },
+      3: {
+        ref: three_note,
+      },
+      4: {
+        ref: semibreve,
+      },
+    };
   }
 
   render() {
@@ -23,7 +40,7 @@ class NotesLine extends React.Component {
             " beat-" +
             (n + 1)
           }
-          src={note}
+          src={this.noteImageNos[this.props.notes[n].noteLength].ref}
         />
       );
       noteLabels.push(
